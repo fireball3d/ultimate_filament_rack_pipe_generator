@@ -1,19 +1,17 @@
+# Setup Python
+echo -e
+echo "INFO: Setup Python"
+uv python install 3.13 --preview
+
 # Setup Python Virtual Environment
 echo -e
 echo "INFO: Creating Python Virtual Environment"
-python3.13 -m venv --upgrade-deps venv
-
+uv venv
 echo -e
 echo "INFO: Activating Python Virtual Environment"
-source venv/bin/activate
+source .venv/bin/activate
 
-echo -e
-echo "INFO: Install UV"
-pip install uv
-
-# Setup Project
-# uv init
-
+# Download dependencies
 echo -e
 echo "INFO: Installing Libraries"
 uv sync
