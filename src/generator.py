@@ -1,4 +1,4 @@
-import openscad
+import solid2
 
 # Create a cone
-openscad.ccreate 
+solid2.circle
