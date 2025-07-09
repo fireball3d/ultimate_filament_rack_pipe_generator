@@ -5,24 +5,5 @@ description: Install Dependencies for CICD
 runs:
   using: composite
   steps:
-    - name: Install UV
-      shell: bash
-      run: |
-        curl -LsSf https://astral.sh/uv/install.sh | sh
-        echo "$HOME/.cargo/bin" >> $GITHUB_PATH  # ensure uv is in PATH
-
-    - name: Install Python
-      shell: bash
-      run: |
-        uv python install 3.13 --preview
-
-    - name: Activate Python Virtual Environment
-      shell: bash
-      run: |
-        source .venv/bin/activate
-
-    - name: Download Project Libs
-      shell: bash
-      run: |
-        uv sync
-
+    - name: Setup UV Env
+      uses: ./.github/actions/setup_uv

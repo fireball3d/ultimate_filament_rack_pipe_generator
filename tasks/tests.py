@@ -33,3 +33,16 @@ def ruff_lint(context):
     print("Ruff Lint")
     print("------------\n")
     context.run("ruff check .")
+
+
+@task
+def yaml_lint(context):
+    print("\n------------")
+    print("Yaml Lint")
+    print("------------\n")
+    context.run(
+        """yamllint --list-files -c .yamllint . &&
+        echo '------------' &&
+        echo -e &&
+        yamllint -f parsable -c .yamllint ."""
+    )

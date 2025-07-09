@@ -54,6 +54,7 @@ ignore=CVS
 # it can't be used as an escape character.
 ignore-paths=^env/.*$,
              ^.venv/.*$,
+             ^venv/.*$,
              ^.ruff_cache/.*$,
              ^tmp/.*$,
              .*__pycache__.*$,

@@ -7,33 +7,43 @@ jobs:
   pylint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: 3.13
+      # - name: Setup Python
+      #   uses: actions/setup-python@v3
+      #   with:
+      #     python-version: 3.13
 
-    - name: Setup CICD
-      uses: ./.github/actions/cicd_setup
+      - name: Setup CICD
+        uses: ./.github/actions/cicd_setup
 
-    - name: Run Invoke Task
-      run: |
-        invoke tests.pylint
+      - name: Run Invoke Task
+        run: |
+          invoke debug.env
+          invoke tests.pylint
 
   ruff_lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v3
-      with:
-        python-version: 3.13
+      - name: Setup CICD
+        uses: ./.github/actions/cicd_setup
 
-    - name: Setup CICD
-      uses: ./.github/actions/cicd_setup
+      - name: Run Invoke Task
+        run: |
+          invoke debug.env
+          invoke tests.ruff_lint
 
-    - name: Run Invoke Task
-      run: |
-        invoke tests.ruff_lint
+  yaml_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup CICD
+        uses: ./.github/actions/cicd_setup
+
+      - name: Run Invoke Task
+        run: |
+          invoke debug.env
+          invoke tests.yaml_lint

@@ -6,7 +6,7 @@ uv python install 3.13 --preview
 # Setup Python Virtual Environment
 echo -e
 echo "INFO: Creating Python Virtual Environment"
-uv venv
+uv .venv
 echo -e
 echo "INFO: Activating Python Virtual Environment"
 source .venv/bin/activate

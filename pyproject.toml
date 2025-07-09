@@ -7,8 +7,9 @@ description = "Openscad script to create custom length pipes for the Ultimate Fi
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pylint>=3.3.7",
-    "invoke>=2.2.0",
-    "ruff>=0.12.2",
-    "solidpython2>=2.1.1",
+    "pylint~=3.3.7",
+    "invoke~=2.2.0",
+    "ruff~=0.12.2",
+    "solidpython2~=2.1.1",
+    "yamllint~=1.37.1",
 ]
