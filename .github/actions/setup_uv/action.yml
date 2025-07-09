@@ -19,7 +19,7 @@ runs:
     - name: Create Python Virtual Environment
       shell: bash
       run: |
-        uv .venv
+        uv venv
 
     - name: Activate Python Virtual Environment
       shell: bash
