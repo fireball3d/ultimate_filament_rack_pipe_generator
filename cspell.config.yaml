@@ -3,7 +3,9 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - Customizer
   - Levon
+  - makerlab
   - Openscad
   - pyinvoke
   - pylint

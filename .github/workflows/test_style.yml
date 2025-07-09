@@ -19,6 +19,7 @@ jobs:
 
       - name: Run Invoke Task
         run: |
+          source .venv/bin/activate
           invoke debug.env
           invoke tests.pylint
 
@@ -32,6 +33,7 @@ jobs:
 
       - name: Run Invoke Task
         run: |
+          source .venv/bin/activate
           invoke debug.env
           invoke tests.ruff_lint
 
@@ -45,5 +47,6 @@ jobs:
 
       - name: Run Invoke Task
         run: |
+          source .venv/bin/activate
           invoke debug.env
           invoke tests.yaml_lint
