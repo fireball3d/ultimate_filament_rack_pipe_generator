@@ -19,4 +19,5 @@ namespace.add_collection(tests, name="tests")
 # Combo Tasks
 namespace.add_task(combos.build, name="build")
 namespace.add_task(combos.fix, name="fix")
+namespace.add_task(combos.run, name="run")
 namespace.add_task(combos.test, name="test")

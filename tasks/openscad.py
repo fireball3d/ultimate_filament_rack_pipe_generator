@@ -9,7 +9,7 @@ def create(context):
     print("\n------------")
     print("Create OpenSCAD File")
     print("------------\n")
-    context.run("python src/generator.py")
+    context.run("python -m src.generator")
 
 
 @task
@@ -18,4 +18,4 @@ def format(context):  # noqa: A001
     print("\n------------")
     print("Format OpenSCAD File for Maker World")
     print("------------\n")
-    context.run("python src/formatter.py")
+    context.run("python -m src.formatter")

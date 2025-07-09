@@ -18,6 +18,15 @@ def fix(context):
 
 
 @task
+def run(context):
+    """Run Project main.py"""
+    print("\n------------")
+    print("Running Project main.py")
+    print("------------\n")
+    context.run("python main.py")
+
+
+@task
 def test(context):
     """Run All Tests"""
     tests.pylint(context)

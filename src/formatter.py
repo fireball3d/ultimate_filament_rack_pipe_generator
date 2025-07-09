@@ -1,15 +1,25 @@
+import logging
 import math
+
+from . import helpers
+
+# Setup Logger
+helpers.logs.set_log_format()
+logger = logging.getLogger(__name__)
 
 # Fixed geometry parameters
 pipe_diameter = 25.75  # across flats
 thread_diameter = 20
 thread_pitch = 2.5
 thread_depth = 35
+input_file = "builds/f3d_ultimate_filament_rack_hex_pipe_generator.scad"
+output_file = "builds/f3d_ultimate_filament_rack_hex_pipe_generator_makerlab.scad"
 
 hex_radius = pipe_diameter / (2 * math.cos(math.pi / 6))
 
 
-def write_customizer_scad(file="../exports/f3d_ultimate_filament_rack_hex_pipe_generator.scad"):
+def write_customizer_scad(input_file):
+    logger.info(f"Input File ({input_file})")
     # Customizer metadata and param declaration (pipe_length adjustable in MakerWorld)
     header = """// [metadata]
 // Author = "Fireball 3D"
@@ -60,11 +70,11 @@ module modeled_thread(diameter, pitch, length) {{
 hex_pipe_custom(pipe_length=pipe_length);
 """
 
-    with open(file, "w", encoding="utf-8") as f:
+    with open(input_file, "w", encoding="utf-8") as f:
         f.write(header)
         f.write(module_def)
 
 
 if __name__ == "__main__":
-    write_customizer_scad("exports/f3d_ultimate_filament_rack_hex_pipe_generator_makerlab.scad")
-    print("Customizer-ready SCAD generated: f3d_ultimate_filament_rack_hex_pipe_generator_makerlab.scad")
+    write_customizer_scad(input_file)
+    logger.info(f"Output File ({output_file})")

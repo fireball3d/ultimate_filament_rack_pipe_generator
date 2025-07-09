@@ -1,6 +1,13 @@
 import math
+import logging
 
 import solid2
+
+from . import helpers
+
+# Setup Logger
+helpers.logs.set_log_format()
+logger = logging.getLogger(__name__)
 
 # Parameters
 pipe_length = 120  # settable, 70–250 mm
@@ -39,5 +46,7 @@ def hex_pipe():
 
 
 if __name__ == "__main__":
+    output_file = "builds/f3d_ultimate_filament_rack_hex_pipe_generator.scad"
     model = hex_pipe()
-    model.save_as_scad("exports/f3d_ultimate_filament_rack_hex_pipe_generator.scad")
+    model.save_as_scad(output_file)
+    logger.info(f"Output File ({output_file})")
