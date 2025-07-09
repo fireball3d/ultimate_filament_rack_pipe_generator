@@ -4,6 +4,23 @@ name: Check / Style
 on: [push]
 
 jobs:
+  pylint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.13
+
+    - name: Setup CICD
+      uses: ./.github/actions/cicd_setup
+
+    - name: Run Invoke Task
+      run: |
+        invoke tests.pylint
+
   ruff_lint:
     runs-on: ubuntu-latest
     steps:

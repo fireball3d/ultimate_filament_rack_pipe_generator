@@ -11,9 +11,18 @@ runs:
         curl -LsSf https://astral.sh/uv/install.sh | sh
         echo "$HOME/.cargo/bin" >> $GITHUB_PATH  # ensure uv is in PATH
 
-    - name: Install dependencies
+    - name: Install Python
+      shell: bash
       run: |
-        python -m pip install --upgrade pip
-        pip install uv
+        uv python install 3.13 --preview
+
+    - name: Activate Python Virtual Environment
+      shell: bash
+      run: |
+        source .venv/bin/activate
+
+    - name: Download Project Libs
+      shell: bash
+      run: |
         uv sync
 
