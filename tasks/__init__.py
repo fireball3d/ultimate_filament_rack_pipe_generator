@@ -2,6 +2,7 @@ from invoke import Collection
 
 from . import (
     combos,
+    openscad,
     ruff,
     tests,
 )
@@ -9,6 +10,7 @@ from . import (
 namespace = Collection()
 namespace.configure({"auto_dash_names": False})
 
+namespace.add_collection(openscad, name="openscad")
 namespace.add_collection(ruff, name="ruff")
 namespace.add_collection(tests, name="tests")
 

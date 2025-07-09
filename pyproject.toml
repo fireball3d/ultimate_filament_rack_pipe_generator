@@ -5,7 +5,7 @@ version = "1.0.0-002"
 # repository = "https://github.com/fireball3d/ultimate_filament_rack_pipe_generator"
 description = "Openscad script to create custom length pipes for the Ultimate Filament Wall Rack"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
     "pylint>=3.3.7",
     "invoke>=2.2.0",

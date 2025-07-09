@@ -14,4 +14,5 @@ def fix(context):
 def test(context):
     """Run All Tests"""
     tests.pylint(context)
-    tests.rufflint(context)
+    tests.ruff_lint(context)
+    tests.openscad_lint(context)
