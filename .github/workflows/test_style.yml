@@ -4,7 +4,7 @@ name: Check / Style
 on: [push]
 
 jobs:
-  ruff:
+  ruff_lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -14,12 +14,9 @@ jobs:
       with:
         python-version: 3.13
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install uv
-        uv sync
+    - name: Setup CICD
+      uses: ./.github/actions/cicd_setup
 
-    - name: Analysing the code with pylint
+    - name: Run Invoke Task
       run: |
-        pylint $(git ls-files '*.py')
+        invoke tests.ruff_lint

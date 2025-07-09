@@ -1,0 +1,19 @@
+---
+name: cicd_setup
+author: Fireball 3D
+description: Install Dependencies for CICD
+runs:
+  using: composite
+  steps:
+    - name: Install UV
+      shell: bash
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.cargo/bin" >> $GITHUB_PATH  # ensure uv is in PATH
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install uv
+        uv sync
+
