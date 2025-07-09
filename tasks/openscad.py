@@ -5,6 +5,7 @@ from invoke import task
 
 @task
 def create(context):
+    """Create .scad File from Python Script"""
     print("\n------------")
     print("Create OpenSCAD File")
     print("------------\n")
@@ -13,6 +14,7 @@ def create(context):
 
 @task
 def format(context):  # noqa: A001
+    """Create .scad File for MakerLabs from Standard .scad Creation"""
     print("\n------------")
     print("Format OpenSCAD File for Maker World")
     print("------------\n")

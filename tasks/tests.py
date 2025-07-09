@@ -5,6 +5,7 @@ from invoke import task
 
 @task
 def openscad_lint(context):
+    """Run OpenSCAD Linter on Entire Repo"""
     print("\n------------")
     print("OpenSCAD Lint")
     print("------------\n")
@@ -21,6 +22,7 @@ def openscad_lint(context):
 
 @task
 def pylint(context):
+    """Run PyLint on Entire Repo"""
     print("\n------------")
     print("Pylint Lint")
     print("------------\n")
@@ -29,6 +31,7 @@ def pylint(context):
 
 @task
 def ruff_lint(context):
+    """Run Ruff Linter on Entire Repo"""
     print("\n------------")
     print("Ruff Lint")
     print("------------\n")
@@ -37,12 +40,15 @@ def ruff_lint(context):
 
 @task
 def yaml_lint(context):
+    """Run Yaml Linter on Entire Repo"""
     print("\n------------")
     print("Yaml Lint")
     print("------------\n")
     context.run(
-        """yamllint --list-files -c .yamllint . &&
+        """
+        yamllint --list-files -c .yamllint . &&
         echo '------------' &&
         echo -e &&
-        yamllint -f parsable -c .yamllint ."""
+        yamllint -f parsable -c .yamllint .
+        """
     )
