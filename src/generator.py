@@ -3,51 +3,47 @@ import math
 import solid2
 
 # Parameters
-pipe_length = 120  # set between 70 and 250 mm
-pipe_diameter = 25.75  # across flat (AF) of hex
+pipe_length = 120  # settable, 70–250 mm
+pipe_diameter = 25.75  # across flats
 thread_diameter = 20
 thread_pitch = 2.5
-thread_depth = 35
-segments = 100  # render quality
+thread_depth = 35  # mm
+hex_sides = 6
 
-# Validation
-assert 70 <= pipe_length <= 250, "pipe_length must be between 70 and 250 mm"
-
-# Derived radius for hex (circle radius)
+# Derived
 hex_radius = pipe_diameter / (2 * math.cos(math.pi / 6))
 
 
-# def hex_cylinder(h, r, fn=6):
-#     return solid2.cylinder(h=h, r=r, _fn=fn)
+def hex_prism(h, r):
+    # Hexagon across-flats to circumcircle
+    return solid2.cylinder(h=h, r=r, _fn=6)
 
 
-def simple_thread_profile(diameter, _pitch):
-    """Create a simplified triangular thread profile (not exact ISO)"""
-    return solid2.polygon([[0, 0], [diameter / 2, 0], [diameter / 2, 0.5], [0, 1]])
+def fake_thread(diameter, pitch, height):
+    # Simplified visual thread: a helical cut using linear_extrude with twist
+    turns = int(math.ceil(height / pitch))
+    profile = solid2.polygon([[diameter / 2 - 0.4, 0], [diameter / 2, 0.5], [diameter / 2 - 0.4, 1], [0, 1], [0, 0]])
+    return solid2.linear_extrude(height=height, twist=turns * 360)(profile)
 
 
-def simple_thread(diameter, pitch, height):
-    turns = math.ceil(height / pitch)
-    profile = simple_thread_profile(diameter, pitch)
-    return solid2.linear_extrude(height=height, twist=turns * 360, center=False)(profile)
+def threaded_hole_with_thread(diameter, depth, pitch):
+    # Union of a main hole and a thread groove
+    hole = solid2.cylinder(h=depth + 1, d=diameter + 0.3)  # +0.3mm for clearance
+    thread = fake_thread(diameter, pitch, depth + 1)
+    return hole + thread
 
 
 def hex_pipe():
-    # Main hex-shaped body
-    body = solid2.cylinder(h=pipe_length, r=hex_radius, _fn=6)
-
-    # Threads at both ends
-    thread = simple_thread(thread_diameter, thread_pitch, thread_depth)
-
-    thread1 = solid2.up(0)(thread)
-    thread2 = solid2.up(pipe_length - thread_depth)(thread)
-
-    threaded_body = solid2.difference()(body, thread1, thread2)
-
-    return threaded_body
+    # The main solid hex bar
+    body = hex_prism(pipe_length, hex_radius)
+    # Threaded holes at each end
+    thread_cut = threaded_hole_with_thread(thread_diameter, thread_depth, thread_pitch)
+    thread1 = solid2.up(0)(thread_cut)
+    thread2 = solid2.up(pipe_length - thread_depth)(thread_cut)
+    # Subtract threaded holes from each end
+    return solid2.difference()(body, thread1, thread2)
 
 
 if __name__ == "__main__":
-    scad = hex_pipe()
-    scad.save_as_scad("export/hex_pipe.scad")
-
+    model = hex_pipe()
+    model.save_as_scad("export/hex_pipe.scad")
