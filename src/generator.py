@@ -40,4 +40,4 @@ def hex_pipe():
 
 if __name__ == "__main__":
     model = hex_pipe()
-    model.save_as_scad("export/hex_pipe.scad")
+    model.save_as_scad("exports/f3d_ultimate_filament_rack_hex_pipe_generator.scad")

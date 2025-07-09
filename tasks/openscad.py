@@ -1,3 +1,5 @@
+# pylint: disable=W0622 # redefined-builtin
+
 from invoke import task
 
 

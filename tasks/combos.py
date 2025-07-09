@@ -1,6 +1,13 @@
 from invoke import task
 
-from . import ruff, tests
+from . import openscad, ruff, tests
+
+
+@task
+def build(context):
+    """Build SCAD Files"""
+    openscad.create(context)
+    openscad.format(context)
 
 
 @task

@@ -16,7 +16,7 @@ def openscad_lint(context):
         except subprocess.CalledProcessError:
             print("❌ SCAD file contains syntax errors.")
 
-    context.run(check_scad("exports/hex_pipe.scad"))
+    context.run(check_scad("exports/f3d_ultimate_filament_rack_hex_pipe_generator.scad"))
 
 
 @task

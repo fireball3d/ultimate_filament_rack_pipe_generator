@@ -9,7 +9,7 @@ thread_depth = 35
 hex_radius = pipe_diameter / (2 * math.cos(math.pi / 6))
 
 
-def write_customizer_scad(file="../exports/hex_pipe.scad"):
+def write_customizer_scad(file="../exports/f3d_ultimate_filament_rack_hex_pipe_generator.scad"):
     # Customizer metadata and param declaration (pipe_length adjustable in MakerWorld)
     header = """// [metadata]
 // Author = "Fireball 3D"
@@ -66,5 +66,5 @@ hex_pipe_custom(pipe_length=pipe_length);
 
 
 if __name__ == "__main__":
-    write_customizer_scad("exports/hex_pipe_makerlab.scad")
-    print("Customizer-ready SCAD generated: hex_pipe_makerlab.scad")
+    write_customizer_scad("exports/f3d_ultimate_filament_rack_hex_pipe_generator_makerlab.scad")
+    print("Customizer-ready SCAD generated: f3d_ultimate_filament_rack_hex_pipe_generator_makerlab.scad")
