@@ -1,7 +1,7 @@
 // [metadata]
-// title = "Hex Pipe With True Metric Threads"
-// author = "Your Name"
-// description = "Parametric hex pipe with real ISO metric internal threads for Bambu Lab MakerWorld Customizer."
+// title = "Hex Pipe With True Metric Threads and Tapered Drill Tip"
+// author = "Fireball 3D"
+// description = "Hex pipe with real ISO metric threads and a 118-degree tapered hole bottom for MakerWorld Customizer."
 // category = "Tools"
 // [params]
 pipe_length = 120; // [70:1:250]
@@ -466,9 +466,16 @@ module hex_pipe_custom(pipe_length=120) {
         // Internal thread at one end
         translate([0,0,0])
             metric_thread(diameter=20, pitch=2.5, length=35, internal=true);
+        // Tapered cone at one end (matches drill tip)
+        translate([0,0,0])
+            cylinder(h=6.008606190275603, r1=0, r2=10.0, center=false);
+
         // Internal thread at other end
         translate([0,0,pipe_length-35])
             metric_thread(diameter=20, pitch=2.5, length=35, internal=true);
+        // Tapered cone at other end
+        translate([0,0,pipe_length-41.0086061902756])
+            cylinder(h=6.008606190275603, r1=0, r2=10.0, center=false);
     }
 }
 
