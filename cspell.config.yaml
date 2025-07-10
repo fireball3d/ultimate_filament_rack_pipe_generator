@@ -1,0 +1,18 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - cicd
+  - Customizer
+  - levelname
+  - Levon
+  - makerlab
+  - Openscad
+  - pyinvoke
+  - pylint
+  - pythonopenscad
+  - solidpython
+  - venv
+ignoreWords: []
+import: []

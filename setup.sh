@@ -1,19 +1,13 @@
 # Setup Python Virtual Environment
 echo -e
 echo "INFO: Creating Python Virtual Environment"
-python3.13 -m venv --upgrade-deps venv
-
+uv venv .venv --python 3.13
 echo -e
 echo "INFO: Activating Python Virtual Environment"
-source venv/bin/activate
+source .venv/bin/activate
 
-echo -e
-echo "INFO: Install UV"
-pip install uv
-
-# Setup Project
-# uv init
-
+# Download dependencies
 echo -e
 echo "INFO: Installing Libraries"
+# uv pip install -e . # install deps in pyproject.toml
 uv sync

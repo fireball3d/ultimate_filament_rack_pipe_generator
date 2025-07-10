@@ -1,13 +1,14 @@
 [project]
-name = "ultimate-filament-rack-pipe-generator"
-version = "1.0.0-001"
-authors = ["Levon Becker"]
-homepage = "https://makerworld.com/en/models/1125717-ultimate-filament-wall-rack"
-repository = "https://github.com/fireball3d/ultimate_filament_rack_pipe_generator"
+name = "fireball3d-ultimate-filament-rack-pipe-generator"
+version = "1.0.0"
+# homepage = "https://makerworld.com/en/models/1125717-ultimate-filament-wall-rack"
+# repository = "https://github.com/fireball3d/ultimate_filament_rack_pipe_generator"
 description = "Openscad script to create custom length pipes for the Ultimate Filament Wall Rack"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
-    "pythonopenscad>=2.2.1",
-    "pylint>=3.3.7",
+    "pylint~=3.3.7",
+    "invoke~=2.2.0",
+    "ruff~=0.12.2",
+    "yamllint~=1.37.1",
 ]

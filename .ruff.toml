@@ -1,0 +1,27 @@
+
+line-length = 120
+target-version = "py313"
+
+[lint]
+select = ["PL", "E", "W", "F", "I", "B", "A", "C4", "N", "UP", "T10", "EXE", "COM819", "C", "Q"]
+
+ignore = ["E501", "PLR2004"]
+
+fixable = ["ALL"]
+unfixable = []
+
+[lint.mccabe]
+max-complexity = 12 # 5 = default
+
+[lint.pylint]
+max-branches = 15 # default = 12
+max-args = 15 # default = 5
+max-statements = 75 # default = 50
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+docstring-code-line-length = "dynamic"
