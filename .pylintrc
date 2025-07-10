@@ -449,7 +449,9 @@ disable=raw-checker-failed,
         fixme,
         line-too-long,
         relative-beyond-top-level,
-        invalid-name
+        invalid-name,
+        logging-fstring-interpolation,
+        import-error
 
 
 # Enable the message, report, category or checker with the given id(s). You can

@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/
 lib64/
 parts/
 sdist/
@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 
 **/tmp
+.make_modules
