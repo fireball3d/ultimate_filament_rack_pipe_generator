@@ -61,5 +61,5 @@ hex_pipe_custom(pipe_length=pipe_length);
 
 
 if __name__ == "__main__":
-    write_customizer_scad("lib/threads.scad", output_file)
+    write_customizer_scad("assets/threads.scad", output_file)
     print(f"Output File: {output_file}")

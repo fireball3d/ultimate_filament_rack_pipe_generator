@@ -7,7 +7,6 @@ from . import openscad, ruff, tests
 def build(context):
     """Build SCAD Files"""
     openscad.create(context)
-    # openscad.format(context)
 
 
 @task

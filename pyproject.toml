@@ -1,10 +1,12 @@
 [project]
 name = "fireball3d-ultimate-filament-rack-pipe-generator"
 version = "1.0.0"
-# homepage = "https://makerworld.com/en/models/1125717-ultimate-filament-wall-rack"
-# repository = "https://github.com/fireball3d/ultimate_filament_rack_pipe_generator"
-description = "Openscad script to create custom length pipes for the Ultimate Filament Wall Rack"
+description = "Python script to create a Makerworld MakerLab Customizer Openscad script to generate custom length pipes for the Ultimate Filament Wall Rack"
 readme = "README.md"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: Linux BASH"
+]
 requires-python = ">=3.13"
 dependencies = [
     "pylint~=3.3.7",
@@ -12,3 +14,35 @@ dependencies = [
     "ruff~=0.12.2",
     "yamllint~=1.37.1",
 ]
+
+[project.urls]
+homepage = "https://makerworld.com/en/models/1125717-ultimate-filament-wall-rack"
+repository = "https://github.com/fireball3d/ultimate_filament_rack_pipe_generator"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["PL", "E", "W", "F", "I", "B", "A", "C4", "N", "UP", "T10", "EXE", "COM819", "C", "Q"]
+
+ignore = ["E501", "PLR2004"]
+
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.mccabe]
+max-complexity = 12 # 5 = default
+
+[tool.ruff.lint.pylint]
+max-branches = 15 # default = 12
+max-args = 15 # default = 5
+max-statements = 75 # default = 50
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = false
+docstring-code-line-length = "dynamic"
