@@ -14,8 +14,7 @@ on:
       - reopened
 
 jobs:
-  deploy:
-    name: Deploy
-    if: github.event_name == 'push'
-    uses: ./.github/workflows/deploy.yml
+  style:
+    name: Style
+    uses: ./.github/workflows/test_style.yml
 

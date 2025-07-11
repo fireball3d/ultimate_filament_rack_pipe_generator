@@ -1,5 +1,5 @@
 ---
-name: Check / Style
+name: Test / Style
 
 on:
   workflow_call:

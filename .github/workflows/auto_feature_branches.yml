@@ -17,4 +17,3 @@ jobs:
   style:
     name: Style
     uses: ./.github/workflows/test_style.yml
-
