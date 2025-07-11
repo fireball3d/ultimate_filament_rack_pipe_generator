@@ -24,9 +24,10 @@ def openscad_lint(context):
             try:
                 result = subprocess.run(
                     ["openscad", "-o", tmpfile.name, file_path],
+                    check=False,
                     capture_output=True,
                     text=True,
-                    timeout=timeout
+                    timeout=timeout,
                 )
                 if result.returncode == 0:
                     print("No syntax errors.")
