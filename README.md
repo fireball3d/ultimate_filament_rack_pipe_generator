@@ -1,4 +1,4 @@
-[![Auto / Feature Branches](https://github.com/fireball3d/ultimate_filament_rack_pipe_generator/actions/workflows/auto_protected_branches.yml/badge.svg?branch=main)](https://github.com/fireball3d/ultimate_filament_rack_pipe_generator/actions/workflows/auto_feature_branches.yml)
+[![Linters](https://github.com/fireball3d/ultimate_filament_rack_pipe_generator/actions/workflows/auto_protected_branches.yml/badge.svg?branch=main)](https://github.com/fireball3d/ultimate_filament_rack_pipe_generator/actions/workflows/auto_feature_branches.yml)
 
 # Ultimate Filament Rack Rack Pipe Generator
 Python script to create scad file for makerlab customizer. Used to make various length pipes for the Fireball 3D Ultimate Filament Rack.

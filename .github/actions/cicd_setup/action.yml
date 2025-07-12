@@ -7,6 +7,3 @@ runs:
   steps:
     - name: Setup UV Env
       uses: ./.github/actions/setup_uv
-
-    - name: Install OpenSCAD
-      uses: ./.github/actions/setup_openscad

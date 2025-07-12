@@ -31,4 +31,3 @@ def test(context):
     tests.pylint(context)
     tests.ruff_lint(context)
     tests.yaml_lint(context)
-    # tests.openscad_lint(context)

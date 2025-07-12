@@ -12,7 +12,9 @@ words:
   - Openscad
   - pyinvoke
   - pylint
+  - pylintrc
   - pythonopenscad
+  - rcfile
   - solidpython
   - venv
 ignoreWords: []
