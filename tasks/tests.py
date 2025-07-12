@@ -1,23 +1,4 @@
-import subprocess
-
 from invoke import task
-
-
-@task
-def openscad_lint(context):
-    """Run OpenSCAD Linter on Entire Repo"""
-    print("\n------------")
-    print("OpenSCAD Lint")
-    print("------------\n")
-
-    def check_scad(file_path):
-        try:
-            subprocess.run(["openscad", "-o", "/dev/null", file_path], check=True)
-            print("✅ No syntax errors in SCAD file.")
-        except subprocess.CalledProcessError:
-            print("❌ SCAD file contains syntax errors.")
-
-    context.run(check_scad("builds/f3d_ultimate_filament_rack_hex_pipe_generator.scad"))
 
 
 @task

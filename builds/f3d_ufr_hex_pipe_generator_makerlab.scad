@@ -461,14 +461,16 @@ module thread_polyhedron (radius, pitch, internal, n_starts, thread_size,
 
 module hex_pipe_custom(pipe_length=120) {
     difference() {
-        // Hexagonal outer body
+        // Outer hex body
         cylinder(h=pipe_length, r=12.990381056766578, $fn=6);
-        // Internal thread at one end
+
+        // Thread at near end
         translate([0,0,0])
             metric_thread(diameter=20, pitch=2.5, length=35, internal=true);
         // Tapered cone at one end (matches drill tip)
-        translate([0,0,0])
-            cylinder(h=6.008606190275603, r1=0, r2=10.0, center=false);
+        translate([0,0,41.0086061902756])
+            rotate([0,180,0])
+                cylinder(h=6.008606190275603, r1=0, r2=10.0, center=false);
 
         // Internal thread at other end
         translate([0,0,pipe_length-35])

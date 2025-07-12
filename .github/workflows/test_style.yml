@@ -1,8 +1,7 @@
 ---
-name: Check / Style
+name: Test / Style
 
-on:
-  workflow_call:
+on: [push, pull_request]
 
 jobs:
   pylint:

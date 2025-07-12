@@ -31,14 +31,16 @@ pipe_length = 120; // [70:1:250]
     module_def = f"""
 module hex_pipe_custom(pipe_length=120) {{
     difference() {{
-        // Hexagonal outer body
+        // Outer hex body
         cylinder(h=pipe_length, r={hex_radius}, $fn=6);
-        // Internal thread at one end
+
+        // Thread at near end
         translate([0,0,0])
             metric_thread(diameter={thread_diameter}, pitch={thread_pitch}, length={thread_depth}, internal=true);
         // Tapered cone at one end (matches drill tip)
-        translate([0,0,0])
-            cylinder(h={drill_tip_depth}, r1=0, r2={thread_diameter / 2}, center=false);
+        translate([0,0,{thread_depth + drill_tip_depth}])
+            rotate([0,180,0])
+                cylinder(h={drill_tip_depth}, r1=0, r2={thread_diameter / 2}, center=false);
 
         // Internal thread at other end
         translate([0,0,pipe_length-{thread_depth}])
@@ -52,6 +54,7 @@ module hex_pipe_custom(pipe_length=120) {{
 // Main call for MakerWorld Customizer
 hex_pipe_custom(pipe_length=pipe_length);
 """
+
     with open(out_filename, "w", encoding="utf-8") as f:
         f.write(header)
         f.write("\n// ---- Start threads.scad ----\n")
@@ -61,5 +64,5 @@ hex_pipe_custom(pipe_length=pipe_length);
 
 
 if __name__ == "__main__":
-    write_customizer_scad("lib/threads.scad", output_file)
+    write_customizer_scad("assets/threads.scad", output_file)
     print(f"Output File: {output_file}")

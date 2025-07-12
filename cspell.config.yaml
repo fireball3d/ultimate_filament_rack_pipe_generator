@@ -8,10 +8,13 @@ words:
   - levelname
   - Levon
   - makerlab
+  - Makerworld
   - Openscad
   - pyinvoke
   - pylint
+  - pylintrc
   - pythonopenscad
+  - rcfile
   - solidpython
   - venv
 ignoreWords: []
