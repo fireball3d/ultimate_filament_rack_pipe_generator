@@ -18,7 +18,7 @@ jobs:
           source .venv/bin/activate
           invoke debug.env
           invoke tests.actionlint
-  
+
   pylint:
     runs-on: ubuntu-latest
     steps:
