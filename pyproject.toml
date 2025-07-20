@@ -1,6 +1,6 @@
 [project]
 name = "fireball3d-ultimate-filament-rack-pipe-generator"
-version = "1.0.0"
+dynamic = ["version"]
 description = "Python script to create a Makerworld MakerLab Customizer Openscad script to generate custom length pipes for the Ultimate Filament Wall Rack"
 readme = "README.md"
 classifiers = [
@@ -9,6 +9,7 @@ classifiers = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "actionlint-py~=1.7.7.23",
     "pylint~=3.3.7",
     "invoke~=2.2.0",
     "ruff~=0.12.2",

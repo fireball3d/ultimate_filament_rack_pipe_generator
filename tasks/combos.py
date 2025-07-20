@@ -1,6 +1,6 @@
 from invoke import task
 
-from . import openscad, ruff, tests
+from . import openscad, ruff, tests, uv
 
 
 @task
@@ -18,16 +18,23 @@ def fix(context):
 
 @task
 def run(context):
-    """Run Project main.py"""
+    """Create OpenSCAD File"""
     print("\n------------")
-    print("Running Project main.py")
+    print("Create OpenSCAD File")
     print("------------\n")
-    context.run("python main.py")
+    context.run("python -m src.generator")
 
 
 @task
 def test(context):
     """Run All Tests"""
+    tests.actionlint(context)
     tests.pylint(context)
     tests.ruff_lint(context)
     tests.yaml_lint(context)
+
+
+@task
+def upgrade(context):
+    """Upgrade Libs"""
+    uv.upgrade(context)

@@ -2,6 +2,15 @@ from invoke import task
 
 
 @task
+def actionlint(context):
+    """Run Action Lint"""
+    print("\n------------")
+    print("Action Lint")
+    print("------------\n")
+    context.run("actionlint")
+
+
+@task
 def pylint(context):
     """Run PyLint on Entire Repo"""
     print("\n------------")
