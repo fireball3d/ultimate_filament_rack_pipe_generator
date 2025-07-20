@@ -4,6 +4,21 @@ name: Test / Style
 on: [push, pull_request]
 
 jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup CICD
+        uses: ./.github/actions/cicd_setup
+
+      - name: Run Invoke Task
+        run: |
+          source .venv/bin/activate
+          invoke debug.env
+          invoke tests.actionlint
+  
   pylint:
     runs-on: ubuntu-latest
     steps:
