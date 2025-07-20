@@ -47,7 +47,7 @@ jobs:
         run: |
           source .venv/bin/activate
           invoke debug.env
-          invoke tests.ruff_lint
+          invoke tests.rufflint
 
   yaml_lint:
     runs-on: ubuntu-latest
@@ -62,4 +62,4 @@ jobs:
         run: |
           source .venv/bin/activate
           invoke debug.env
-          invoke tests.yaml_lint
+          invoke tests.yamllint

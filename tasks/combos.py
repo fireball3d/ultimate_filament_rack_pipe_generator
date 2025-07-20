@@ -30,8 +30,8 @@ def test(context):
     """Run All Tests"""
     tests.actionlint(context)
     tests.pylint(context)
-    tests.ruff_lint(context)
-    tests.yaml_lint(context)
+    tests.rufflint(context)
+    tests.yamllint(context)
 
 
 @task

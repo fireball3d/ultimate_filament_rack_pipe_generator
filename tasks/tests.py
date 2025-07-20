@@ -20,7 +20,7 @@ def pylint(context):
 
 
 @task
-def ruff_lint(context):
+def rufflint(context):
     """Run Ruff Linter on Entire Repo"""
     print("\n------------")
     print("Ruff Lint")
@@ -29,7 +29,7 @@ def ruff_lint(context):
 
 
 @task
-def yaml_lint(context):
+def yamllint(context):
     """Run Yaml Linter on Entire Repo"""
     print("\n------------")
     print("Yaml Lint")
